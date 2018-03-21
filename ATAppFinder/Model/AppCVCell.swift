@@ -14,7 +14,6 @@ class AppCVCell: UICollectionViewCell {
     @IBOutlet weak var appNameLbl: UILabel!
     
     var app: App!
-//    var imageData: NSData!
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -26,12 +25,8 @@ class AppCVCell: UICollectionViewCell {
         
         appImgView.image = UIImage(named: "YATTI Logo 2")
         appNameLbl.text = app.name
-//        self.app = app
-//
-//        print(app.name)
-//        appNameLbl.text = self.app.name
-//        self.appImgView.image = UIImage(data: self.app.appIcon as Data)!
-        print("configCell")
+
+//        print("configCell")
 
     }
 }

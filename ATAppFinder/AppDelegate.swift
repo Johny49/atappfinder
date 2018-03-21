@@ -20,7 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Configure FirebaseApp Shared instance
         FirebaseApp.configure()
-
         return true
     }
 

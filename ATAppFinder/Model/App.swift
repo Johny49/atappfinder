@@ -58,53 +58,53 @@ class App {
         self._moreInfo = moreInfo
         self._categories = categories
         self._iTunesUrl = itunesURL
+
 //        self._iTunesLookupUrl = "\(LOOKUP_URL_BASE)\(_appID!)"
 //        print(self._iTunesLookupUrl!)
-        
-        // download app details
-//        let url = URL(string: "https://itunes.apple.com/lookup?id=842788895")!
-//        let url = URL(string: "\(self._iTunesLookupUrl)")!
+//
+//        // download app details
+//        let url = URL(string: "\(LOOKUP_URL_BASE)\(self._appID!)")!
 //        print(url)
- /*
-        let request = NSMutableURLRequest(url: url)
-//        let request = NSMutableURLRequest(url: URL(string: "https://itunes.apple.com/lookup?id=919097064")!)
-        
-        let task = URLSession.shared.dataTask(with: request as URLRequest) {
-            (data, response, error) in
-            
-            if error != nil {
-                print(error!)
-            } else {
-                if let urlContent = data {
-                    
-                    do {
-                        let jsonResult = try JSONSerialization.jsonObject(with: urlContent, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
-                        
-                        if let appInfo = ((jsonResult["results"] as? NSArray)?[0] as? NSDictionary) {
-                            self._description = appInfo["description"] as? String
-                            print("description: \(String(describing: self._description!))")
-
-                            self._iTunesUrl = appInfo["trackViewUrl"] as? String
-                            print("URL: \(String(describing: self._iTunesUrl!))")
-                            
-                            self._appIconUrl = appInfo["artworkUrl100"] as? String
-                            print("appIcon:\(String(describing: self._appIconUrl))")
-                            
-                            self._appIcon = NSData(contentsOf: URL(string: self.appIconUrl)!)! as Data
-                            
-                            DispatchQueue.main.sync(execute: {
-                                
-                            })
-                        }
-                        
-                    } catch {
-                        print("JSON Processing Failed")
-                    }
-                }
-            }
-        }
-        task.resume()
- */
-        
+//
+//        let request = NSMutableURLRequest(url: url)
+//
+//        let task = URLSession.shared.dataTask(with: request as URLRequest) {
+//            (data, response, error) in
+//
+//            if error != nil {
+//                print(error!)
+//            } else {
+//                if let urlContent = data {
+//
+//                    do {
+//                        let jsonResult = try JSONSerialization.jsonObject(with: urlContent, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
+//
+//                        if let appInfo = ((jsonResult["results"] as? NSArray)?[0] as? NSDictionary) {
+//                            self._description = appInfo["description"]! as? String
+//                            print("description: \(String(describing: self._description!))")
+//
+////                            self._iTunesUrl = appInfo["trackViewUrl"]! as? String
+////                            print("URL: \(String(describing: self._iTunesUrl!))")
+//
+//                            self._appIconUrl = appInfo["artworkUrl100"]! as? String
+//                            print("appIcon:\(String(describing: self._appIconUrl))")
+//
+////                            self._appIcon = NSData(contentsOf: URL(string: self.appIconUrl)!)! as Data
+//
+//                            DispatchQueue.main.sync(execute: {
+//
+//                            })
+//                        }
+//
+//                    } catch {
+//                        print("JSON Processing Failed")
+//                    }
+//                } //else {
+////                    self._description = ""
+////                    self._appIconUrl = "na"
+////                }
+//            }
+//        }
+//        task.resume()
     }
 }

@@ -16,9 +16,10 @@ class CategoriesVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
     @IBOutlet weak var UDLPV: UIPickerView!
     @IBOutlet weak var UDLSubPV: UIPickerView!
     
+    var filteredApps: [App] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
         self.categoryPV.dataSource = self
         self.categoryPV.delegate = self
@@ -26,6 +27,7 @@ class CategoriesVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
         self.UDLPV.delegate = self
         self.UDLSubPV.dataSource = self
         self.UDLSubPV.delegate = self
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -77,4 +79,12 @@ class CategoriesVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
         }
     }
     
+    func filterByCategory() {
+        
+        
+        // sort
+        //        let filterCat = ""
+        //        filteredApps = app.filter({$0.name.range(of: filterCat) != nil})
+
+    }
 }
