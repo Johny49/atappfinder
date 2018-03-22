@@ -247,7 +247,7 @@
                                 </connections>
                             </segmentedControl>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="f2M-kt-yh4">
-                                <rect key="frame" x="268" y="165" width="489" height="216"/>
+                                <rect key="frame" x="268" y="147" width="489" height="216"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XhO-Na-hcp">
                                         <rect key="frame" x="0.0" y="94" width="89" height="28"/>
@@ -264,40 +264,70 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="ljw-3q-gIt">
-                                <rect key="frame" x="512" y="165" width="0.0" height="0.0"/>
+                                <rect key="frame" x="512" y="147" width="0.0" height="0.0"/>
                                 <subviews>
                                     <pickerView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GPV-5I-p4H" userLabel="UDLPickerView">
-                                        <rect key="frame" x="-512" y="-165" width="400" height="216"/>
+                                        <rect key="frame" x="-512" y="-147" width="400" height="216"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="400" id="jro-hm-Sje"/>
                                         </constraints>
                                     </pickerView>
                                     <pickerView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MvL-mX-B48" userLabel="UDLSubPickerView">
-                                        <rect key="frame" x="-512" y="-165" width="500" height="216"/>
+                                        <rect key="frame" x="-512" y="-147" width="500" height="216"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="500" id="Ycc-jM-fRa"/>
                                         </constraints>
                                     </pickerView>
                                 </subviews>
                             </stackView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.56000000000000005" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Y2O-ZX-KzJ">
-                                <rect key="frame" x="20" y="389" width="984" height="330"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Y2O-ZX-KzJ">
+                                <rect key="frame" x="20" y="352" width="984" height="367"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="9gY-25-dJy">
-                                    <size key="itemSize" width="50" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="20" id="9gY-25-dJy">
+                                    <size key="itemSize" width="200" height="100"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="categoryCell" id="G3m-Ng-Vtr">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="BrowseAppCell" reuseIdentifier="CategoriesAppCell" id="X9z-aa-arv" userLabel="CategoriesAppCell" customClass="AppCVCell" customModule="ATAppFinder" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="App Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MQS-2f-jw5">
+                                                    <rect key="frame" x="92" y="33.5" width="108" height="33"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="33" id="1dq-hC-brh"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="GroceryRounded" family="Grocery Rounded" pointSize="20"/>
+                                                    <color key="textColor" red="0.18925829450000001" green="0.34271581140000001" blue="0.52777998100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YATTI Logo 2" translatesAutoresizingMaskIntoConstraints="NO" id="FTA-BT-WpZ">
+                                                    <rect key="frame" x="8" y="9" width="82" height="82"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="82" id="Klj-HM-781"/>
+                                                        <constraint firstAttribute="height" constant="82" id="RaC-84-5FQ"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
                                         </view>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="MQS-2f-jw5" secondAttribute="trailing" id="29s-v8-fIX"/>
+                                            <constraint firstItem="FTA-BT-WpZ" firstAttribute="leading" secondItem="X9z-aa-arv" secondAttribute="leading" constant="8" id="4r3-e5-cW9"/>
+                                            <constraint firstItem="MQS-2f-jw5" firstAttribute="centerY" secondItem="X9z-aa-arv" secondAttribute="centerY" id="XCA-BJ-BnM"/>
+                                            <constraint firstItem="FTA-BT-WpZ" firstAttribute="centerY" secondItem="X9z-aa-arv" secondAttribute="centerY" id="hsn-40-Ynd"/>
+                                            <constraint firstItem="MQS-2f-jw5" firstAttribute="leading" secondItem="FTA-BT-WpZ" secondAttribute="trailing" constant="2" id="jb5-gm-eCz"/>
+                                            <constraint firstItem="FTA-BT-WpZ" firstAttribute="leading" secondItem="X9z-aa-arv" secondAttribute="leading" constant="8" id="vsD-0C-HWu"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="appImgView" destination="FTA-BT-WpZ" id="U6W-H9-TiK"/>
+                                            <outlet property="appNameLbl" destination="MQS-2f-jw5" id="ah7-oF-CPa"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -314,11 +344,11 @@
                             <constraint firstItem="x3x-br-14r" firstAttribute="centerX" secondItem="NhP-fA-sYE" secondAttribute="centerX" id="cYu-gn-beM"/>
                             <constraint firstItem="LmR-me-zG8" firstAttribute="trailing" secondItem="omL-oX-Vaf" secondAttribute="trailing" id="cfw-6c-dYH"/>
                             <constraint firstItem="2Ri-gH-6L3" firstAttribute="bottom" secondItem="omL-oX-Vaf" secondAttribute="bottom" id="dKo-70-NTp"/>
-                            <constraint firstItem="ljw-3q-gIt" firstAttribute="top" secondItem="x3x-br-14r" secondAttribute="bottom" constant="26" id="ddb-FM-fcr"/>
+                            <constraint firstItem="ljw-3q-gIt" firstAttribute="top" secondItem="x3x-br-14r" secondAttribute="bottom" constant="8" id="ddb-FM-fcr"/>
                             <constraint firstItem="ljw-3q-gIt" firstAttribute="centerX" secondItem="NhP-fA-sYE" secondAttribute="centerX" id="gaQ-Ea-aAv"/>
                             <constraint firstItem="UOY-OD-wrz" firstAttribute="top" secondItem="omL-oX-Vaf" secondAttribute="top" constant="61" id="gnh-Au-Zwv"/>
                             <constraint firstItem="2Ri-gH-6L3" firstAttribute="top" secondItem="LmR-me-zG8" secondAttribute="bottom" id="lo0-8I-eTJ"/>
-                            <constraint firstItem="f2M-kt-yh4" firstAttribute="top" secondItem="x3x-br-14r" secondAttribute="bottom" constant="26" id="mMx-18-b6N"/>
+                            <constraint firstItem="f2M-kt-yh4" firstAttribute="top" secondItem="x3x-br-14r" secondAttribute="bottom" constant="8" id="mMx-18-b6N"/>
                             <constraint firstItem="2Ri-gH-6L3" firstAttribute="trailing" secondItem="omL-oX-Vaf" secondAttribute="trailing" id="rOi-ox-q0J"/>
                             <constraint firstItem="2Ri-gH-6L3" firstAttribute="leading" secondItem="omL-oX-Vaf" secondAttribute="leading" id="rP8-os-59k"/>
                         </constraints>
@@ -329,6 +359,7 @@
                     <connections>
                         <outlet property="UDLPV" destination="GPV-5I-p4H" id="ea4-qb-LIx"/>
                         <outlet property="UDLSubPV" destination="MvL-mX-B48" id="xpS-uQ-lu4"/>
+                        <outlet property="categoriesCV" destination="Y2O-ZX-KzJ" id="koW-gp-tWZ"/>
                         <outlet property="categoryLbl" destination="XhO-Na-hcp" id="y4b-dB-ZgR"/>
                         <outlet property="categoryPV" destination="D6v-te-vcB" id="Ves-CT-Efn"/>
                         <outlet property="topicUDLSegmentedControl" destination="x3x-br-14r" id="e7C-h0-EPe"/>
