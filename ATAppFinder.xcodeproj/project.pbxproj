@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C1D91C620751BE7001B192E /* ViewDismiss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1D91C520751BE7001B192E /* ViewDismiss.swift */; };
 		1CA62D4D203C72F1004A9DF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA62D4C203C72F1004A9DF0 /* AppDelegate.swift */; };
 		1CA62D4F203C72F1004A9DF0 /* BrowseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA62D4E203C72F1004A9DF0 /* BrowseVC.swift */; };
-		1CA62D51203C72F1004A9DF0 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA62D50203C72F1004A9DF0 /* SearchVC.swift */; };
 		1CA62D54203C72F1004A9DF0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CA62D52203C72F1004A9DF0 /* Main.storyboard */; };
 		1CA62D56203C72F3004A9DF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CA62D55203C72F3004A9DF0 /* Assets.xcassets */; };
 		1CA62D59203C72F3004A9DF0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CA62D57203C72F3004A9DF0 /* LaunchScreen.storyboard */; };
@@ -20,14 +20,17 @@
 		1CA62D6E203C9BFF004A9DF0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA62D6D203C9BFF004A9DF0 /* Constants.swift */; };
 		1CA62D72203CAA68004A9DF0 /* csv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA62D71203CAA68004A9DF0 /* csv.swift */; };
 		1CDF6E8A20596A1A0010F5CC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1CDF6E8920596A1A0010F5CC /* GoogleService-Info.plist */; };
+		1CE5FE822072A3FC00040205 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE5FE812072A3FC00040205 /* DetailsView.swift */; };
+		1CE5FE842072A40900040205 /* Details.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CE5FE832072A40900040205 /* Details.xib */; };
+		1CE5FE862072A56900040205 /* AppImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE5FE852072A56900040205 /* AppImage.swift */; };
 		D8C6476D32AE5D7AE0DA949A /* Pods_ATAppFinder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35337C8DF8B1E32105541E64 /* Pods_ATAppFinder.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1C1D91C520751BE7001B192E /* ViewDismiss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDismiss.swift; sourceTree = "<group>"; };
 		1CA62D49203C72F1004A9DF0 /* ATAppFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ATAppFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CA62D4C203C72F1004A9DF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1CA62D4E203C72F1004A9DF0 /* BrowseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseVC.swift; sourceTree = "<group>"; };
-		1CA62D50203C72F1004A9DF0 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		1CA62D53203C72F1004A9DF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1CA62D55203C72F3004A9DF0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1CA62D58203C72F3004A9DF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -39,6 +42,9 @@
 		1CA62D6D203C9BFF004A9DF0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1CA62D71203CAA68004A9DF0 /* csv.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = csv.swift; sourceTree = "<group>"; };
 		1CDF6E8920596A1A0010F5CC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1CE5FE812072A3FC00040205 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
+		1CE5FE832072A40900040205 /* Details.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Details.xib; sourceTree = "<group>"; };
+		1CE5FE852072A56900040205 /* AppImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppImage.swift; sourceTree = "<group>"; };
 		35337C8DF8B1E32105541E64 /* Pods_ATAppFinder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ATAppFinder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		731361CB5C34BD5A11AA66B4 /* Pods-ATAppFinder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATAppFinder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ATAppFinder/Pods-ATAppFinder.debug.xcconfig"; sourceTree = "<group>"; };
 		DA90F8F022E78E846A7158C6 /* Pods-ATAppFinder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATAppFinder.release.xcconfig"; path = "Pods/Target Support Files/Pods-ATAppFinder/Pods-ATAppFinder.release.xcconfig"; sourceTree = "<group>"; };
@@ -102,7 +108,6 @@
 			isa = PBXGroup;
 			children = (
 				1CA62D6A203C989B004A9DF0 /* App.swift */,
-				1CA62D65203C86DB004A9DF0 /* AppCVCell.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -110,6 +115,11 @@
 		1CA62D68203C86EA004A9DF0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1CA62D65203C86DB004A9DF0 /* AppCVCell.swift */,
+				1CE5FE852072A56900040205 /* AppImage.swift */,
+				1CE5FE812072A3FC00040205 /* DetailsView.swift */,
+				1CE5FE832072A40900040205 /* Details.xib */,
+				1C1D91C520751BE7001B192E /* ViewDismiss.swift */,
 				1CA62D57203C72F3004A9DF0 /* LaunchScreen.storyboard */,
 				1CA62D52203C72F1004A9DF0 /* Main.storyboard */,
 			);
@@ -120,7 +130,6 @@
 			isa = PBXGroup;
 			children = (
 				1CA62D4E203C72F1004A9DF0 /* BrowseVC.swift */,
-				1CA62D50203C72F1004A9DF0 /* SearchVC.swift */,
 				1CA62D60203C7529004A9DF0 /* CategoriesVC.swift */,
 			);
 			path = Controller;
@@ -213,6 +222,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CE5FE842072A40900040205 /* Details.xib in Resources */,
 				1CA62D59203C72F3004A9DF0 /* LaunchScreen.storyboard in Resources */,
 				1CA62D56203C72F3004A9DF0 /* Assets.xcassets in Resources */,
 				1CA62D64203C8521004A9DF0 /* GroceryRounded.ttf in Resources */,
@@ -249,12 +259,16 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ATAppFinder/Pods-ATAppFinder-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -288,12 +302,14 @@
 			files = (
 				1CA62D72203CAA68004A9DF0 /* csv.swift in Sources */,
 				1CA62D61203C7529004A9DF0 /* CategoriesVC.swift in Sources */,
-				1CA62D51203C72F1004A9DF0 /* SearchVC.swift in Sources */,
+				1CE5FE822072A3FC00040205 /* DetailsView.swift in Sources */,
 				1CA62D66203C86DB004A9DF0 /* AppCVCell.swift in Sources */,
 				1CA62D6B203C989B004A9DF0 /* App.swift in Sources */,
 				1CA62D6E203C9BFF004A9DF0 /* Constants.swift in Sources */,
 				1CA62D4D203C72F1004A9DF0 /* AppDelegate.swift in Sources */,
+				1C1D91C620751BE7001B192E /* ViewDismiss.swift in Sources */,
 				1CA62D4F203C72F1004A9DF0 /* BrowseVC.swift in Sources */,
+				1CE5FE862072A56900040205 /* AppImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

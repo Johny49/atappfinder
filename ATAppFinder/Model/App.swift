@@ -8,49 +8,51 @@
 
 import Foundation
 import UIKit
+import Alamofire
+import AlamofireImage
 
 class App {
     private var _name: String!
     private var _appID: String!
-    private var _iTunesLookupUrl: String!
+//    private var _iTunesLookupUrl: String!
     private var _description: String!
     private var _appIconUrl: String!
     private var _iTunesUrl: String!
     private var _moreInfo: String!
     private var _categories: String!
-    private var _appIcon: Data!
+//    private var _appIcon: Data!
 
     var name: String {
-        return _name
+        return _name!
     }
     
     var appID: String {
-        return _appID
+        return _appID!
     }
     
     var moreInfo: String {
-        return _moreInfo
+        return _moreInfo!
     }
     
     var categories: String {
-        return _categories
+        return _categories!
     }
     
     var description: String {
-        return _description
+        return _description!
     }
     
     var appIconUrl: String {
-        return _appIconUrl
+        return _appIconUrl!
     }
     
     var iTunesUrl: String {
-        return _iTunesUrl
+        return _iTunesUrl!
     }
     
-    var appIcon: Data {
-        return _appIcon
-    }
+//    var appIcon: Data {
+//        return _appIcon!
+//    }
     
     init(name: String, appID: String, moreInfo: String, categories: String, itunesURL: String) {
         self._name = name
@@ -59,52 +61,63 @@ class App {
         self._categories = categories
         self._iTunesUrl = itunesURL
 
-//        self._iTunesLookupUrl = "\(LOOKUP_URL_BASE)\(_appID!)"
-//        print(self._iTunesLookupUrl!)
-//
-//        // download app details
-//        let url = URL(string: "\(LOOKUP_URL_BASE)\(self._appID!)")!
+        // download app details
+        let url = URL(string: "\(LOOKUP_URL_BASE)\(self._appID!)")!
 //        print(url)
+
+        Alamofire.request(url, method: .get) .responseJSON { response in
+            let result = response.result
+            
+            if let dict = result.value as? Dictionary<String, AnyObject> {
+                
+//                if self._name == "MyScript Stack" {
+//                    print(dict["resultCount"])
 //
-//        let request = NSMutableURLRequest(url: url)
+//                }
+
+//                if let appArray = (dict["results"] as? NSArray) {
 //
-//        let task = URLSession.shared.dataTask(with: request as URLRequest) {
-//            (data, response, error) in
-//
-//            if error != nil {
-//                print(error!)
-//            } else {
-//                if let urlContent = data {
-//
-//                    do {
-//                        let jsonResult = try JSONSerialization.jsonObject(with: urlContent, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
-//
-//                        if let appInfo = ((jsonResult["results"] as? NSArray)?[0] as? NSDictionary) {
-//                            self._description = appInfo["description"]! as? String
-//                            print("description: \(String(describing: self._description!))")
-//
-////                            self._iTunesUrl = appInfo["trackViewUrl"]! as? String
-////                            print("URL: \(String(describing: self._iTunesUrl!))")
-//
-//                            self._appIconUrl = appInfo["artworkUrl100"]! as? String
-//                            print("appIcon:\(String(describing: self._appIconUrl))")
-//
-////                            self._appIcon = NSData(contentsOf: URL(string: self.appIconUrl)!)! as Data
-//
-//                            DispatchQueue.main.sync(execute: {
-//
-//                            })
-//                        }
-//
-//                    } catch {
-//                        print("JSON Processing Failed")
+//                    print(appArray)
+                
+                    if let appInfo = ((dict["results"] as? NSArray)?[0] as? NSDictionary) {
+
+                        if let description = appInfo["description"] {
+                            self._description = description as? String 
+                                print("description: \(self._description)")
+                        }
+                        if let iconURL = appInfo["artworkUrl100"] {
+                            self._appIconUrl = (iconURL as? String)!
+                            print("\(self._name) appIcon:\(self._appIconUrl)")
+                        }
 //                    }
-//                } //else {
-////                    self._description = ""
-////                    self._appIconUrl = "na"
-////                }
-//            }
-//        }
-//        task.resume()
+                } else {
+                    print("1.unable to download info for \(self._name)")
+                        self._appIconUrl! = Bundle.main.path(forResource: "YATTI Logo 2", ofType: "png")!
+                    self._description! = "This app is currently unavailable"
+                }
+            }
+            
+//            self.downloadAppIcons()
+        }
     }
+    
+    func downloadAppIcons() {
+        
+        Alamofire.request(self.appIconUrl).responseImage { response in
+            debugPrint(response)
+            
+            print(response.request)
+            print(response.response)
+            debugPrint(response.result)
+            
+            if let image = response.result.value {
+                
+                let radius: CGFloat = 5.0
+                let roundedImage = image.af_imageRounded(withCornerRadius: radius)
+                
+                //cache
+            }
+        }
+    }
+
 }

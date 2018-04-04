@@ -10,7 +10,7 @@ import UIKit
 
 class AppCVCell: UICollectionViewCell {
     
-    @IBOutlet weak var appImgView: UIImageView!
+    @IBOutlet weak var appImgView: AppImage!
     @IBOutlet weak var appNameLbl: UILabel!
     
     var app: App!

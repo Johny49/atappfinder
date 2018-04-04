@@ -11,12 +11,17 @@ import Firebase
 
 var apps = [App]()
 
-class BrowseVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class BrowseVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
 
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var browseCollection: UICollectionView!
     
     var ref: DatabaseReference! // define reference to Firebase Database
     var appData: NSDictionary!
+    var appDetails: DetailsView!
+    
+    var filteredApps = [App]()
+    var inSearchMode = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,11 +37,12 @@ class BrowseVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
             
             self.browseCollection.reloadData()
             
-//            self.filterByCategory()
-
         }) { (error) in
             print(error.localizedDescription)
         }
+        
+        searchBar.delegate = self
+        searchBar.returnKeyType = UIReturnKeyType.done
         
         browseCollection.dataSource = self
         browseCollection.delegate = self
@@ -61,18 +67,34 @@ class BrowseVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
 //                    print("Append App Unsuccessful")
 //                    return
 //            }
-
-//            print("Entry: \(appName), \(appID), \(categories), \(moreInfo), \(itunesURL)")
-        }
+       }
         print(apps.count)
     }
-
+    
+    func createDetailsFromNib() {
+        appDetails = Bundle.main.loadNibNamed("Details", owner: self, options: nil)![0] as? DetailsView
+        appDetails.center = CGPoint(x: UIScreen.main.bounds.midX, y: UIScreen.main.bounds.midY)
+        self.view.addSubview(appDetails)
+        createNewTransparencyButton()
+    }
+    
+    func createNewTransparencyButton() {
+        let transparencyButton = UIButton(frame: super.view.bounds)
+        transparencyButton.backgroundColor = UIColor.clear
+        view.insertSubview(transparencyButton, belowSubview: appDetails)
+        transparencyButton.addTarget(self, action: #selector(transparencyBtnPressed), for: .touchUpInside)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BrowseAppCell", for: indexPath) as? AppCVCell {
-            let app = apps[indexPath.row]
-
+            let app: App!
+            
+            if inSearchMode {
+                app = filteredApps[indexPath.row]
+            } else {
+                app = apps[indexPath.row]
+            }
             cell.configureCell(app)
-//            print("Configuring cell for \(app.name)")
             return cell
         } else {
             print("Using default CollectionViewCell")
@@ -80,19 +102,46 @@ class BrowseVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let app = apps[indexPath.row]
-        print(app.name)
-        // segue to details vc
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if inSearchMode {
+            return filteredApps.count
+        } else {
+            return apps.count
+        }
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return apps.count
-    }
-
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let app: App = apps[indexPath.row]
+            createDetailsFromNib()
+            appDetails.configureApp(app: app)
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        view.endEditing(true)
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar.text == nil || searchBar.text == "" {
+            inSearchMode = false
+            view.endEditing(true)
+            browseCollection.reloadData()
+        } else {
+            inSearchMode = true
+//            let lower = searchBar.text!.lowercased()
+            let search = searchBar.text!
+            filteredApps = apps.filter({$0.name.range(of: search) != nil})
+            
+            browseCollection.reloadData()
+        }
+    }
+    
+    @IBAction func transparencyBtnPressed(sender: UIButton) {
+        appDetails.removeFromSuperview()
+        sender.removeFromSuperview()
+    }
 }
 

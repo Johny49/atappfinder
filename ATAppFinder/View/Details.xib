@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="GroceryRounded.ttf">
+            <string>GroceryRounded</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="DetailsView" customModule="ATAppFinder" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="detailsBg" translatesAutoresizingMaskIntoConstraints="NO" id="5eO-12-Eqs" userLabel="Background">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YATTI Logo 2" translatesAutoresizingMaskIntoConstraints="NO" id="4wG-At-6P3" customClass="AppImage" customModule="ATAppFinder" customModuleProvider="target">
+                    <rect key="frame" x="250" y="45" width="100" height="100"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="hxu-gD-6oC"/>
+                        <constraint firstAttribute="width" constant="100" id="kSF-Ow-NdC"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="App Name" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="EMm-Pb-ovj">
+                    <rect key="frame" x="20" y="167" width="560" height="40"/>
+                    <accessibility key="accessibilityConfiguration" label="AT App Search"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="7sn-52-gIh"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="GroceryRounded" family="Grocery Rounded" pointSize="36"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Categories:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gca-dk-vyn">
+                    <rect key="frame" x="20" y="507" width="120" height="24"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="GroceryRounded" family="Grocery Rounded" pointSize="24"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Link to app in iTunes goes here" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vXn-gD-xPp">
+                    <rect key="frame" x="148" y="442" width="432" height="24"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="GroceryRounded" family="Grocery Rounded" pointSize="24"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="iTunes URL:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m3J-FX-icX">
+                    <rect key="frame" x="20" y="442" width="120" height="24"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="GroceryRounded" family="Grocery Rounded" pointSize="24"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Additional Info goes here" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aFv-nC-KgM">
+                    <rect key="frame" x="148" y="374" width="432" height="24"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="GroceryRounded" family="Grocery Rounded" pointSize="24"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="List of Categories goes here" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="ZB6-Te-Sod">
+                    <rect key="frame" x="148" y="215" width="432" height="143"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="GroceryRounded" family="Grocery Rounded" pointSize="24"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Additional Info:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6P1-at-EwL">
+                    <rect key="frame" x="20" y="374" width="120" height="24"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="GroceryRounded" family="Grocery Rounded" pointSize="24"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="List of Categories goes here" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aib-or-LuR">
+                    <rect key="frame" x="148" y="481" width="432" height="76"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="GroceryRounded" family="Grocery Rounded" pointSize="24"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hYz-uh-jqS">
+                    <rect key="frame" x="20" y="215" width="120" height="24"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="GroceryRounded" family="Grocery Rounded" pointSize="24"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="EMm-Pb-ovj" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="H6G-m8-0h8"/>
+                <constraint firstItem="4wG-At-6P3" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="25" id="Rb8-Hx-2co"/>
+                <constraint firstItem="4wG-At-6P3" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="X6E-Ye-6vW"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="EMm-Pb-ovj" secondAttribute="trailing" constant="20" id="Z78-6m-MQn"/>
+                <constraint firstItem="EMm-Pb-ovj" firstAttribute="top" secondItem="4wG-At-6P3" secondAttribute="bottom" constant="22" id="dXx-ry-ugL"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                    <real key="value" value="12"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="additionalInfoLbl" destination="aFv-nC-KgM" id="ZvW-N0-LPW"/>
+                <outlet property="appImgView" destination="4wG-At-6P3" id="cZi-7Z-qV2"/>
+                <outlet property="categoriesLbl" destination="aib-or-LuR" id="wSU-LR-b1C"/>
+                <outlet property="descriptionLbl" destination="ZB6-Te-Sod" id="6nX-D4-tjx"/>
+                <outlet property="itunesUrlLbl" destination="vXn-gD-xPp" id="agw-eC-SLL"/>
+                <outlet property="nameLbl" destination="EMm-Pb-ovj" id="LKg-IZ-vXI"/>
+            </connections>
+        </view>
+    </objects>
+    <resources>
+        <image name="YATTI Logo 2" width="206" height="184"/>
+        <image name="detailsBg" width="1600" height="1600"/>
+    </resources>
+</document>
