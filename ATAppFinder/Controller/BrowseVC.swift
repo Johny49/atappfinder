@@ -18,8 +18,8 @@ class BrowseVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
     
     var ref: DatabaseReference! // define reference to Firebase Database
     var appData: NSDictionary!
-    var appDetails: DetailsView!
     
+    var appDetails: DetailsView!
     var filteredApps = [App]()
     var inSearchMode = false
     
@@ -35,8 +35,6 @@ class BrowseVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
             // process app data
             self.parseAppData()
             
-            self.browseCollection.reloadData()
-            
         }) { (error) in
             print(error.localizedDescription)
         }
@@ -46,6 +44,10 @@ class BrowseVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
         
         browseCollection.dataSource = self
         browseCollection.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        browseCollection.reloadData()
     }
     
     func parseAppData() {
@@ -67,9 +69,30 @@ class BrowseVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
 //                    print("Append App Unsuccessful")
 //                    return
 //            }
+            browseCollection.reloadData()
        }
         print(apps.count)
     }
+    
+//    func downloadAppIcons() {
+//        for app in apps {
+//            let urlRequest = URLRequest(url: URL(string: app.appIconUrl)!)
+//
+//            downloader.download(urlRequest) { response in
+//                    print(response.request)
+//                    print(response.response)
+//                    debugPrint(response.result)
+//
+//                    // Download image.
+//                    if let image = response.result.value {
+//                        // Add to Cache.
+//                        imageCache.add(image, for: urlRequest, withIdentifier: "\(app.name)")
+//                        print(image)
+//                    }
+//                }
+//            self.browseCollection.reloadData()
+//            }
+//        }
     
     func createDetailsFromNib() {
         appDetails = Bundle.main.loadNibNamed("Details", owner: self, options: nil)![0] as? DetailsView

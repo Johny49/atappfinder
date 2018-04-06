@@ -13,12 +13,15 @@ import AlamofireImage
 @IBDesignable
 class DetailsView: UIView {
     
+    @IBOutlet weak var toolbar: UIToolbar!
     @IBOutlet weak var appImgView: UIImageView!
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var descriptionLbl: UILabel!
     @IBOutlet weak var additionalInfoLbl: UILabel!
     @IBOutlet weak var itunesUrlLbl: UILabel!
     @IBOutlet weak var categoriesLbl: UILabel!
+    
+    var currentApp: App!
     
     @IBInspectable var cornerRadius: CGFloat = 12.0 {
         didSet {
@@ -36,6 +39,7 @@ class DetailsView: UIView {
     }
 
     func setupView() {
+        
         self.layer.cornerRadius = cornerRadius
         self.layer.shadowOpacity = 0.8
         self.layer.shadowRadius = 5.0
@@ -52,17 +56,24 @@ class DetailsView: UIView {
         itunesUrlLbl.text = app.iTunesUrl
         categoriesLbl.text = app.categories
 
-        Alamofire.request(app.appIconUrl).responseImage { response in
-            debugPrint(response)
-            
-            print(response.request)
-            print(response.response)
-            debugPrint(response.result)
-            
-            if let image = response.result.value {
-                self.appImgView.image = image
-            }
-        }
+        let placeholderImage = UIImage(named: "YATTI Logo 2")
+        appImgView.af_setImage(withURL: URL(string: app.appIconUrl)!, placeholderImage: placeholderImage)
+        
+        currentApp = app
+    }
+    
+    @IBAction func shareBtnPressed(_ sender: Any) {
+        let window = UIApplication.shared.keyWindow
+        var vc = window?.rootViewController
 
+        while (vc!.presentedViewController != nil) {
+            vc = vc?.presentedViewController
+        
+            let name = currentApp.name
+            let url: URL = URL(string: currentApp.iTunesUrl)!
+
+            let activityVC = UIActivityViewController(activityItems: [name,url], applicationActivities: nil)
+            vc?.present(activityVC, animated: true, completion: nil)
+        }
     }
 }

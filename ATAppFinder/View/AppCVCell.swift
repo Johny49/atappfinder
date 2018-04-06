@@ -23,10 +23,13 @@ class AppCVCell: UICollectionViewCell {
     
     func configureCell(_ app: App) {
         
-        appImgView.image = UIImage(named: "YATTI Logo 2")
+        if app.appIconUrl != "" {
+            let placeholderImage = UIImage(named: "YATTI Logo 2")
+            appImgView.af_setImage(withURL: URL(string: app.appIconUrl)!, placeholderImage: placeholderImage)
+        } else {
+            appImgView.image = UIImage(named: "YATTI Logo 2")
+        }
+
         appNameLbl.text = app.name
-
-//        print("configCell")
-
     }
 }

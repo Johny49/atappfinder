@@ -41,6 +41,10 @@ class CategoriesVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
         
         categoriesCV.reloadData()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        categoriesCV.reloadData()
+    }
 
     func createDetailsFromNib() {
         appDetails = Bundle.main.loadNibNamed("Details", owner: self, options: nil)![0] as? DetailsView

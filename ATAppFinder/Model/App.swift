@@ -11,12 +11,14 @@ import UIKit
 import Alamofire
 import AlamofireImage
 
+let imageCache = AutoPurgingImageCache()
+let downloader = ImageDownloader()
+
 class App {
     private var _name: String!
     private var _appID: String!
-//    private var _iTunesLookupUrl: String!
     private var _description: String!
-    private var _appIconUrl: String!
+    private var _appIconUrl: String = ""
     private var _iTunesUrl: String!
     private var _moreInfo: String!
     private var _categories: String!
@@ -43,16 +45,12 @@ class App {
     }
     
     var appIconUrl: String {
-        return _appIconUrl!
+        return _appIconUrl
     }
     
     var iTunesUrl: String {
         return _iTunesUrl!
     }
-    
-//    var appIcon: Data {
-//        return _appIcon!
-//    }
     
     init(name: String, appID: String, moreInfo: String, categories: String, itunesURL: String) {
         self._name = name
@@ -83,41 +81,40 @@ class App {
 
                         if let description = appInfo["description"] {
                             self._description = description as? String 
-                                print("description: \(self._description)")
+//                                print("description: \(self._description)")
                         }
                         if let iconURL = appInfo["artworkUrl100"] {
                             self._appIconUrl = (iconURL as? String)!
-                            print("\(self._name) appIcon:\(self._appIconUrl)")
+//                            print("\(self._name) appIcon:\(self._appIconUrl)")
                         }
 //                    }
                 } else {
                     print("1.unable to download info for \(self._name)")
-                        self._appIconUrl! = Bundle.main.path(forResource: "YATTI Logo 2", ofType: "png")!
+                        self._appIconUrl = Bundle.main.path(forResource: "YATTI Logo 2", ofType: "png")!
                     self._description! = "This app is currently unavailable"
                 }
             }
-            
-//            self.downloadAppIcons()
+            self.downloadAppIcon()
         }
     }
     
-    func downloadAppIcons() {
-        
-        Alamofire.request(self.appIconUrl).responseImage { response in
-            debugPrint(response)
+    func downloadAppIcon() {
+        if imageCache.image(withIdentifier: self.name) == nil {
+            // Download app Icon:
+            let urlRequest = URLRequest(url: URL(string: self.appIconUrl)!)
             
-            print(response.request)
-            print(response.response)
-            debugPrint(response.result)
-            
-            if let image = response.result.value {
+            downloader.download(urlRequest) { response in
+                print(response.request)
+                print(response.response)
+                debugPrint(response.result)
                 
-                let radius: CGFloat = 5.0
-                let roundedImage = image.af_imageRounded(withCornerRadius: radius)
-                
-                //cache
+                // Download image.
+                if let image = response.result.value {
+                    // Add to Cache.
+                    imageCache.add(image, for: urlRequest, withIdentifier: "\(self.name)")
+                    print(image)
+                }
             }
         }
     }
-
 }
