@@ -13,13 +13,11 @@ import AlamofireImage
 @IBDesignable
 class DetailsView: UIView {
     
-    @IBOutlet weak var toolbar: UIToolbar!
     @IBOutlet weak var appImgView: UIImageView!
     @IBOutlet weak var nameLbl: UILabel!
-    @IBOutlet weak var descriptionLbl: UILabel!
     @IBOutlet weak var additionalInfoLbl: UILabel!
-    @IBOutlet weak var itunesUrlLbl: UILabel!
     @IBOutlet weak var categoriesLbl: UILabel!
+    @IBOutlet weak var detailsTV: UITextView!
     
     var currentApp: App!
     
@@ -51,10 +49,11 @@ class DetailsView: UIView {
     func configureApp(app: App) {
         
         nameLbl.text = app.name
-        descriptionLbl.text = app.description
         additionalInfoLbl.text = app.moreInfo
-        itunesUrlLbl.text = app.iTunesUrl
         categoriesLbl.text = app.categories
+        
+        detailsTV.text = app.description
+        detailsTV.allowsEditingTextAttributes = false
 
         let placeholderImage = UIImage(named: "YATTI Logo 2")
         appImgView.af_setImage(withURL: URL(string: app.appIconUrl)!, placeholderImage: placeholderImage)
@@ -63,17 +62,27 @@ class DetailsView: UIView {
     }
     
     @IBAction func shareBtnPressed(_ sender: Any) {
-        let window = UIApplication.shared.keyWindow
-        var vc = window?.rootViewController
-
-        while (vc!.presentedViewController != nil) {
-            vc = vc?.presentedViewController
+        let vc = self.window?.rootViewController
         
-            let name = currentApp.name
-            let url: URL = URL(string: currentApp.iTunesUrl)!
-
-            let activityVC = UIActivityViewController(activityItems: [name,url], applicationActivities: nil)
-            vc?.present(activityVC, animated: true, completion: nil)
+        let name = currentApp.name
+        let url: URL = URL(string: currentApp.iTunesUrl)!
+        
+        print(name, url)
+        
+        let activityVC = UIActivityViewController(activityItems: [name,url], applicationActivities: nil)
+        if let wPPC = activityVC.popoverPresentationController {
+            wPPC.sourceView = self
         }
+//        present(activityVC, animated: true)
+        vc?.present(activityVC, animated: true, completion: {
+            
+        })
     }
+    
+    @IBAction func viewInAppStoreBtnPressed(_ sender: Any) {
+        let url = URL(string: APP_STORE_BASE+currentApp.appID)!
+
+        UIApplication.shared.open(url)
+    }
+    
 }

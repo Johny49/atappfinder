@@ -10,6 +10,7 @@ import Foundation
 
 // iTunes Search Query
 let LOOKUP_URL_BASE = "https://itunes.apple.com/lookup?id="
+let APP_STORE_BASE = "itms-apps://itunes.apple.com/app/id"
 let PLACEHOLDER_IMAGE = Bundle.main.path(forResource: "YATTI Logo 2", ofType: "png")
 
 // Category Picker View Data Sources

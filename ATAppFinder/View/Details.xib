@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+    <device id="ipad9_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -20,31 +20,43 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" alpha="0.75" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="detailsBg" translatesAutoresizingMaskIntoConstraints="NO" id="5eO-12-Eqs" userLabel="Background">
+                <imageView hidden="YES" userInteractionEnabled="NO" alpha="0.75" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="detailsBg" translatesAutoresizingMaskIntoConstraints="NO" id="5eO-12-Eqs" userLabel="Background">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" alpha="0.59999999999999998" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Bu-wv-Tep">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cOb-ZF-EFe">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                    <items>
-                        <barButtonItem width="570" style="plain" systemItem="fixedSpace" id="9eu-hY-AbT"/>
-                        <barButtonItem systemItem="action" id="DuC-q9-bQJ">
-                            <connections>
-                                <action selector="shareBtnPressed:" destination="iN0-l3-epB" id="T6K-2B-rTH"/>
-                            </connections>
-                        </barButtonItem>
-                    </items>
-                </toolbar>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YATTI Logo 2" translatesAutoresizingMaskIntoConstraints="NO" id="4wG-At-6P3" customClass="AppImage" customModule="ATAppFinder" customModuleProvider="target">
-                    <rect key="frame" x="250" y="45" width="100" height="100"/>
+                    <subviews>
+                        <toolbar opaque="NO" clearsContextBeforeDrawing="NO" alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Bu-wv-Tep">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="ws2-GM-SzQ"/>
+                            </constraints>
+                            <items>
+                                <barButtonItem title="View in App Store" id="SGu-W2-reP">
+                                    <connections>
+                                        <action selector="viewInAppStoreBtnPressed:" destination="iN0-l3-epB" id="umu-Gp-T1f"/>
+                                    </connections>
+                                </barButtonItem>
+                                <barButtonItem width="570" style="plain" systemItem="fixedSpace" id="9eu-hY-AbT"/>
+                                <barButtonItem systemItem="action" id="DuC-q9-bQJ">
+                                    <connections>
+                                        <action selector="shareBtnPressed:" destination="iN0-l3-epB" id="T6K-2B-rTH"/>
+                                    </connections>
+                                </barButtonItem>
+                            </items>
+                        </toolbar>
+                    </subviews>
+                    <color key="backgroundColor" red="0.46818780900000001" green="0.79409837719999998" blue="0.98686736819999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="100" id="hxu-gD-6oC"/>
-                        <constraint firstAttribute="width" constant="100" id="kSF-Ow-NdC"/>
+                        <constraint firstAttribute="trailing" secondItem="9Bu-wv-Tep" secondAttribute="trailing" id="Axa-Ng-slb"/>
+                        <constraint firstAttribute="height" constant="44" id="Idw-Rv-5NT"/>
+                        <constraint firstItem="9Bu-wv-Tep" firstAttribute="leading" secondItem="cOb-ZF-EFe" secondAttribute="leading" id="cgv-E3-BRL"/>
+                        <constraint firstItem="9Bu-wv-Tep" firstAttribute="top" secondItem="cOb-ZF-EFe" secondAttribute="top" id="x15-pS-rWv"/>
                     </constraints>
-                </imageView>
+                </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="App Name" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="EMm-Pb-ovj">
-                    <rect key="frame" x="20" y="167" width="560" height="40"/>
+                    <rect key="frame" x="20" y="176" width="560" height="40"/>
                     <accessibility key="accessibilityConfiguration" label="AT App Search"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="7sn-52-gIh"/>
@@ -53,70 +65,84 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Categories:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gca-dk-vyn">
-                    <rect key="frame" x="20" y="530" width="120" height="24"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Additional Info goes here" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="aFv-nC-KgM">
+                    <rect key="frame" x="150" y="280" width="430" height="24"/>
                     <fontDescription key="fontDescription" name="GroceryRounded" family="Grocery Rounded" pointSize="24"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Link to app in iTunes goes here" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vXn-gD-xPp">
-                    <rect key="frame" x="148" y="472" width="432" height="24"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Additional Info:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6P1-at-EwL">
+                    <rect key="frame" x="18" y="280" width="120" height="24"/>
                     <fontDescription key="fontDescription" name="GroceryRounded" family="Grocery Rounded" pointSize="24"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Additional Info goes here" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aFv-nC-KgM">
-                    <rect key="frame" x="148" y="421" width="432" height="24"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="List of Categories goes here" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="aib-or-LuR">
+                    <rect key="frame" x="150" y="236" width="430" height="24"/>
                     <fontDescription key="fontDescription" name="GroceryRounded" family="Grocery Rounded" pointSize="24"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="List of Categories goes here" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="ZB6-Te-Sod">
-                    <rect key="frame" x="148" y="215" width="432" height="198"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hYz-uh-jqS">
+                    <rect key="frame" x="20" y="324" width="118" height="24"/>
                     <fontDescription key="fontDescription" name="GroceryRounded" family="Grocery Rounded" pointSize="24"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Additional Info:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6P1-at-EwL">
-                    <rect key="frame" x="20" y="421" width="120" height="24"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="40O-Z2-CbN">
+                    <rect key="frame" x="150" y="324" width="430" height="256"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="430" id="vI9-Zu-DiF"/>
+                    </constraints>
+                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                    <fontDescription key="fontDescription" name="GroceryRounded" family="Grocery Rounded" pointSize="17"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Categories:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gca-dk-vyn">
+                    <rect key="frame" x="20" y="236" width="118" height="24"/>
                     <fontDescription key="fontDescription" name="GroceryRounded" family="Grocery Rounded" pointSize="24"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="List of Categories goes here" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="aib-or-LuR">
-                    <rect key="frame" x="148" y="504" width="432" height="76"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name="GroceryRounded" family="Grocery Rounded" pointSize="24"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hYz-uh-jqS">
-                    <rect key="frame" x="20" y="215" width="120" height="24"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name="GroceryRounded" family="Grocery Rounded" pointSize="24"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="iTunes URL:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m3J-FX-icX">
-                    <rect key="frame" x="20" y="472" width="120" height="24"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name="GroceryRounded" family="Grocery Rounded" pointSize="24"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YATTI Logo 2" translatesAutoresizingMaskIntoConstraints="NO" id="4wG-At-6P3" customClass="AppImage" customModule="ATAppFinder" customModuleProvider="target">
+                    <rect key="frame" x="250" y="64" width="100" height="100"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="hxu-gD-6oC"/>
+                        <constraint firstAttribute="width" constant="100" id="kSF-Ow-NdC"/>
+                    </constraints>
+                </imageView>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="EMm-Pb-ovj" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="H6G-m8-0h8"/>
-                <constraint firstItem="4wG-At-6P3" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="25" id="Rb8-Hx-2co"/>
-                <constraint firstItem="4wG-At-6P3" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="X6E-Ye-6vW"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="EMm-Pb-ovj" secondAttribute="trailing" constant="20" id="Z78-6m-MQn"/>
-                <constraint firstItem="EMm-Pb-ovj" firstAttribute="top" secondItem="4wG-At-6P3" secondAttribute="bottom" constant="22" id="dXx-ry-ugL"/>
+                <constraint firstItem="40O-Z2-CbN" firstAttribute="centerX" secondItem="aib-or-LuR" secondAttribute="centerX" id="2d0-7d-EXB"/>
+                <constraint firstItem="aFv-nC-KgM" firstAttribute="width" secondItem="40O-Z2-CbN" secondAttribute="width" id="2iS-mX-H66"/>
+                <constraint firstItem="aib-or-LuR" firstAttribute="leading" secondItem="gca-dk-vyn" secondAttribute="trailing" constant="12" id="3me-gD-d5n"/>
+                <constraint firstItem="40O-Z2-CbN" firstAttribute="top" secondItem="aFv-nC-KgM" secondAttribute="bottom" constant="20" id="5xO-wu-TEW"/>
+                <constraint firstItem="hYz-uh-jqS" firstAttribute="top" secondItem="6P1-at-EwL" secondAttribute="bottom" constant="20" id="94T-Jx-CPz"/>
+                <constraint firstItem="aFv-nC-KgM" firstAttribute="leading" secondItem="6P1-at-EwL" secondAttribute="trailing" constant="12" id="Avk-lY-oCd"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="40O-Z2-CbN" secondAttribute="bottom" constant="20" id="BUs-DZ-vH9"/>
+                <constraint firstItem="4wG-At-6P3" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="GTh-CJ-iAK"/>
+                <constraint firstItem="40O-Z2-CbN" firstAttribute="leading" secondItem="hYz-uh-jqS" secondAttribute="trailing" constant="12" id="JBV-ki-xm2"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="40O-Z2-CbN" secondAttribute="trailing" constant="20" id="JXW-cB-X2o"/>
+                <constraint firstItem="aFv-nC-KgM" firstAttribute="top" secondItem="aib-or-LuR" secondAttribute="bottom" constant="20" id="O4E-KB-W07"/>
+                <constraint firstItem="6P1-at-EwL" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="18" id="PRB-HJ-y2p"/>
+                <constraint firstItem="cOb-ZF-EFe" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="RQb-Nm-19m"/>
+                <constraint firstItem="hYz-uh-jqS" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="TNJ-oN-bTi"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="EMm-Pb-ovj" secondAttribute="trailing" constant="20" id="UDz-m8-8nG"/>
+                <constraint firstItem="aib-or-LuR" firstAttribute="width" secondItem="aFv-nC-KgM" secondAttribute="width" id="VYq-vx-AHc"/>
+                <constraint firstItem="6P1-at-EwL" firstAttribute="top" secondItem="aFv-nC-KgM" secondAttribute="top" id="WFK-iV-TMl"/>
+                <constraint firstItem="cOb-ZF-EFe" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Ydk-xv-P5y"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="aFv-nC-KgM" secondAttribute="trailing" constant="20" id="ZhA-Na-JZh"/>
+                <constraint firstItem="aFv-nC-KgM" firstAttribute="centerX" secondItem="40O-Z2-CbN" secondAttribute="centerX" id="ame-Wg-3os"/>
+                <constraint firstItem="gca-dk-vyn" firstAttribute="top" secondItem="EMm-Pb-ovj" secondAttribute="bottom" constant="20" id="bJ5-xS-JCf"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="aib-or-LuR" secondAttribute="trailing" constant="20" id="bkR-sW-RXQ"/>
+                <constraint firstItem="gca-dk-vyn" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="cbf-lK-xfL"/>
+                <constraint firstItem="4wG-At-6P3" firstAttribute="top" secondItem="cOb-ZF-EFe" secondAttribute="bottom" constant="20" id="cdZ-JD-bvh"/>
+                <constraint firstItem="aib-or-LuR" firstAttribute="top" secondItem="EMm-Pb-ovj" secondAttribute="bottom" constant="20" id="cnD-1b-OSj"/>
+                <constraint firstItem="EMm-Pb-ovj" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="fxG-sB-2iU"/>
+                <constraint firstItem="cOb-ZF-EFe" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="iMK-Sw-EIP"/>
+                <constraint firstItem="EMm-Pb-ovj" firstAttribute="top" secondItem="4wG-At-6P3" secondAttribute="bottom" constant="12" id="p77-Um-3hd"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
@@ -129,10 +155,8 @@
                 <outlet property="additionalInfoLbl" destination="aFv-nC-KgM" id="ZvW-N0-LPW"/>
                 <outlet property="appImgView" destination="4wG-At-6P3" id="cZi-7Z-qV2"/>
                 <outlet property="categoriesLbl" destination="aib-or-LuR" id="wSU-LR-b1C"/>
-                <outlet property="descriptionLbl" destination="ZB6-Te-Sod" id="6nX-D4-tjx"/>
-                <outlet property="itunesUrlLbl" destination="vXn-gD-xPp" id="agw-eC-SLL"/>
+                <outlet property="detailsTV" destination="40O-Z2-CbN" id="guI-ED-cz9"/>
                 <outlet property="nameLbl" destination="EMm-Pb-ovj" id="LKg-IZ-vXI"/>
-                <outlet property="toolbar" destination="9Bu-wv-Tep" id="bh5-EJ-Pnu"/>
             </connections>
         </view>
     </objects>

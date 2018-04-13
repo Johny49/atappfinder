@@ -22,14 +22,13 @@ class BrowseVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
     var appDetails: DetailsView!
     var filteredApps = [App]()
     var inSearchMode = false
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Initialize database & create reference
+        Database.database().isPersistenceEnabled = true
         ref = Database.database().reference()
         
-        // Get app data
         ref.child("Apps").observeSingleEvent(of: .value, with: { (snapshot) in
             self.appData = snapshot.value as? NSDictionary
             // process app data
@@ -73,26 +72,6 @@ class BrowseVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
        }
         print(apps.count)
     }
-    
-//    func downloadAppIcons() {
-//        for app in apps {
-//            let urlRequest = URLRequest(url: URL(string: app.appIconUrl)!)
-//
-//            downloader.download(urlRequest) { response in
-//                    print(response.request)
-//                    print(response.response)
-//                    debugPrint(response.result)
-//
-//                    // Download image.
-//                    if let image = response.result.value {
-//                        // Add to Cache.
-//                        imageCache.add(image, for: urlRequest, withIdentifier: "\(app.name)")
-//                        print(image)
-//                    }
-//                }
-//            self.browseCollection.reloadData()
-//            }
-//        }
     
     func createDetailsFromNib() {
         appDetails = Bundle.main.loadNibNamed("Details", owner: self, options: nil)![0] as? DetailsView
@@ -138,9 +117,17 @@ class BrowseVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let app: App = apps[indexPath.row]
+        if inSearchMode {
+            let app = filteredApps[indexPath.row]
+            view.endEditing(true)
             createDetailsFromNib()
             appDetails.configureApp(app: app)
+        } else {
+            let app: App = apps[indexPath.row]
+            view.endEditing(true)
+            createDetailsFromNib()
+            appDetails.configureApp(app: app)
+        }
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
