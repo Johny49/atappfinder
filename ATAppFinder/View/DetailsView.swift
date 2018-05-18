@@ -56,7 +56,9 @@ class DetailsView: UIView {
         detailsTV.allowsEditingTextAttributes = false
 
         let placeholderImage = UIImage(named: "YATTI Logo 2")
-        appImgView.af_setImage(withURL: URL(string: app.appIconUrl)!, placeholderImage: placeholderImage)
+        if app.appIconUrl != "" {
+            appImgView.af_setImage(withURL: URL(string: app.appIconUrl)!, placeholderImage: placeholderImage)
+        }
         
         currentApp = app
     }

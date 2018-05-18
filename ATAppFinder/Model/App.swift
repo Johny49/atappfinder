@@ -65,33 +65,25 @@ class App {
 
         Alamofire.request(url, method: .get) .responseJSON { response in
             let result = response.result
-            
+            print(self._name)
             if let dict = result.value as? Dictionary<String, AnyObject> {
-                
-//                if self._name == "MyScript Stack" {
-//                    print(dict["resultCount"])
-//
-//                }
-
-//                if let appArray = (dict["results"] as? NSArray) {
-//
-//                    print(appArray)
-                
+                if dict["resultCount"] as! Int != 0 {
+                    print("resultsCount = \(dict["resultCount"])")
                     if let appInfo = ((dict["results"] as? NSArray)?[0] as? NSDictionary) {
-
+                        
                         if let description = appInfo["description"] {
-                            self._description = description as? String 
-//                                print("description: \(self._description)")
+                            self._description = description as? String
                         }
                         if let iconURL = appInfo["artworkUrl100"] {
-                            self._appIconUrl = (iconURL as? String)!
-//                            print("\(self._name) appIcon:\(self._appIconUrl)")
-                        }
-//                    }
-                } else {
-                    print("1.unable to download info for \(self._name)")
-                        self._appIconUrl = Bundle.main.path(forResource: "YATTI Logo 2", ofType: "png")!
-                    self._description! = "This app is currently unavailable"
+                            self._appIconUrl = (iconURL as? String)!                        }
+                    }
+                }  else {
+                        print("1.unable to download info for \(self._name)")
+                        self._appIconUrl = ""
+                        self._description = "This app is currently unavailable"
+                        self._iTunesUrl = ""
+                        self._categories = ""
+                        self._moreInfo = ""
                 }
             }
             self.downloadAppIcon()
@@ -99,20 +91,22 @@ class App {
     }
     
     func downloadAppIcon() {
-        if imageCache.image(withIdentifier: self.name) == nil {
-            // Download app Icon:
-            let urlRequest = URLRequest(url: URL(string: self.appIconUrl)!)
-            
-            downloader.download(urlRequest) { response in
-                print(response.request)
-                print(response.response)
-                debugPrint(response.result)
+        if _appIconUrl != "" {
+            if imageCache.image(withIdentifier: self.name) == nil {
+                // Download app Icon:
+                let urlRequest = URLRequest(url: URL(string: self.appIconUrl)!)
                 
-                // Download image.
-                if let image = response.result.value {
-                    // Add to Cache.
-                    imageCache.add(image, for: urlRequest, withIdentifier: "\(self.name)")
-                    print(image)
+                downloader.download(urlRequest) { response in
+                    print(response.request)
+                    print(response.response)
+                    debugPrint(response.result)
+                    
+                    // Download image.
+                    if let image = response.result.value {
+                        // Add to Cache.
+                        imageCache.add(image, for: urlRequest, withIdentifier: "\(self.name)")
+                        print(image)
+                    }
                 }
             }
         }

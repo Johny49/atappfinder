@@ -33,7 +33,7 @@ class BrowseVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
             self.appData = snapshot.value as? NSDictionary
             // process app data
             self.parseAppData()
-            
+            self.browseCollection.reloadData()
         }) { (error) in
             print(error.localizedDescription)
         }
@@ -64,11 +64,7 @@ class BrowseVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
             let app = App(name: appName as! String, appID: appID as! String, moreInfo: moreInfo as! String, categories: categories as! String, itunesURL: itunesURL as! String)
             
                 apps.append(app)
-//            else {
-//                    print("Append App Unsuccessful")
-//                    return
-//            }
-            browseCollection.reloadData()
+
        }
         print(apps.count)
     }

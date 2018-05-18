@@ -130,56 +130,58 @@ class CategoriesVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
     
     func filterByCategory() {
         for app in apps {
-            var appCat = app.categories
-            var catSort = ""
-            
-            print("\(app.name) - \(appCat)")
-            
-            if appCat.count == 1 {
-                catSort = appCat
+            if app.categories != "" {
+                var appCat = app.categories
+                var catSort = ""
                 
-                if catSort == currentCategory {
-                    selectedApps.append(app)
-                }
-            } else {
-                // sort through categories
-                for i in 1...appCat.count-1 {
-                    let charOne = appCat[appCat.index(appCat.startIndex, offsetBy: i-1)]
-                    let charTwo = appCat[appCat.index(appCat.startIndex, offsetBy: i)]
+                print("\(app.name) - \(appCat)")
+                
+                if appCat.count == 1 {
+                    catSort = appCat
                     
-                    if charOne == "," || charOne == " " {
-                        if appCat[appCat.index(appCat.startIndex, offsetBy: i)] == appCat[appCat.index(before: appCat.endIndex)] {
-                            print("Category: \(charTwo)")
-                            // assign to category from charTwo
-                            catSort = String(charTwo)
+                    if catSort == currentCategory {
+                        selectedApps.append(app)
+                    }
+                } else {
+                    // sort through categories
+                    for i in 1...appCat.count-1 {
+                        let charOne = appCat[appCat.index(appCat.startIndex, offsetBy: i-1)]
+                        let charTwo = appCat[appCat.index(appCat.startIndex, offsetBy: i)]
+                        
+                        if charOne == "," || charOne == " " {
+                            if appCat[appCat.index(appCat.startIndex, offsetBy: i)] == appCat[appCat.index(before: appCat.endIndex)] {
+                                print("Category: \(charTwo)")
+                                // assign to category from charTwo
+                                catSort = String(charTwo)
+                                
+                                if catSort == currentCategory {
+                                    selectedApps.append(app)
+                                }
+                            } else {
+                                // ignore character and continue
+                                print("ignoring this character")
+                            }
+                        } else if charTwo == "," || charTwo == " " {
+                            print("category: \(charOne)")
+                            // assign to category from charOne
+                            catSort = String(charOne)
                             
                             if catSort == currentCategory {
                                 selectedApps.append(app)
                             }
-                        } else {
-                            // ignore character and continue
-                            print("ignoring this character")
                         }
-                    } else if charTwo == "," || charTwo == " " {
-                        print("category: \(charOne)")
-                        // assign to category from charOne
-                        catSort = String(charOne)
-                        
-                        if catSort == currentCategory {
-                            selectedApps.append(app)
+                        else {
+                            print("category: \(charOne)\(charTwo)")
+                            // concatenate charOne and charTwo to assign to category
+                            catSort = String("\(charOne)\(charTwo)")
+                            
+                            if catSort == currentCategory {
+                                selectedApps.append(app)
+                            }
+                            //replace character at charTwo to prevent miscategorizing
+                            appCat.remove(at: appCat.index(appCat.startIndex, offsetBy: i))
+                            appCat.insert(",", at: appCat.index(appCat.startIndex, offsetBy: i))
                         }
-                    }
-                    else {
-                        print("category: \(charOne)\(charTwo)")
-                        // concatenate charOne and charTwo to assign to category
-                        catSort = String("\(charOne)\(charTwo)")
-                        
-                        if catSort == currentCategory {
-                            selectedApps.append(app)
-                        }
-                        //replace character at charTwo to prevent miscategorizing
-                        appCat.remove(at: appCat.index(appCat.startIndex, offsetBy: i))
-                        appCat.insert(",", at: appCat.index(appCat.startIndex, offsetBy: i))
                     }
                 }
             }
