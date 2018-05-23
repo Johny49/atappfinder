@@ -137,9 +137,8 @@ class BrowseVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
             browseCollection.reloadData()
         } else {
             inSearchMode = true
-//            let lower = searchBar.text!.lowercased()
-            let search = searchBar.text!
-            filteredApps = apps.filter({$0.name.range(of: search) != nil})
+            let search = searchBar.text!.lowercased()
+            filteredApps = apps.filter({$0.name.lowercased().range(of: search) != nil})
             
             browseCollection.reloadData()
         }
