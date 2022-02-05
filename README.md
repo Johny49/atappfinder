@@ -13,7 +13,7 @@ iPad App containing a library of searchable, categorised educational/assistive t
 This project was created for enterprise deployment through JAMF in a K-12 educational setting.  It contains a library of educational and assistive technology apps available for use within the district. Apps can be searched and also viewed by category.  Firebase is used to store the database.
 
 ## Screenshot
-![Screenshot of portfolio webpage](./assets/images/readme-screenshot.png)
+![Screenshot of portfolio webpage](./readme-screenshot.png)
 
 
 ## Code
